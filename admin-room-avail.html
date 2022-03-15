@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Reservation</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/6268efea2a.js" crossorigin="anonymous"></script>
+</head>
+<body class="admin-body">
+   <section id="admin-nav-bar">
+       <div class="admin-logo"><h2 class="admin-logo">DEL LUNA</h2></div>
+       <div class="admin-items">
+           <li><i class="fa fa-address-card"></i><a href="./admin-guest.html">Guest</a></li>
+           <li><i class="fa fa-calendar"></i><a href="./admin-reservation.html">Reservation</a></li>
+           <li><i class="fa fa-h-square"></i><a href="./admin-room.html">Rooms</a></li>
+           <li><i class="fa fa-trello"></i><a href="./admin-room-avail.html">Rooms Available</a></li>
+       </div>
+   </section>
+
+   <section id="interface">
+       <div class="interface-nav-bar">
+            <div class="profile">
+                <i class="far fa-bell"></i>
+                <i class="fa fa-user"></i>
+            </div>
+       </div>
+
+       <div class="admin-container-available">
+        <div class="admin-heading-available">Rooms Available</div>
+        <div class="overlay-available">
+            <div class="data">
+                <input type="text" class="room-ID" placeholder="Room ID">
+            </div>
+            <div class="data">
+                <input type="text" class="hotel-ID" placeholder="Hotel ID">
+            </div>
+            <div class="data">
+                <input type="date" class="date" placeholder="Date">
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <script type = "text/javascript"> 
+
+                function myAjax() {
+                      $.ajax({
+                           type: "POST",
+                           url: 'avaliroom.php',
+                           data:{action: 'call_this'},
+                           error: function(xhr,status,error){alert(error);},
+                           success:function(data) {
+                             document.getElementById( 'my_div' ).innerHTML = data;
+                             setTimeout(myAjax, 2000);
+                           }
+                
+                      });
+                
+                }
+                
+                </script>
+            <button class="search" onclick="myAjax()">Search</button>
+        </div>
+    </div>
+
+   </section>
+</body>
+</html>

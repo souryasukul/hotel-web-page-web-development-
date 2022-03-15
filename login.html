@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://kit.fontawesome.com/6268efea2a.js" crossorigin="anonymous"></script>
+	<title>Login</title>
+	<link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body id="login-body">
+	<div class="login-container">
+		<h1>Login to Del Luna</h1>
+		<form name="f1" action = "authentication.php" onsubmit = "return validation()" method = "POST">  
+		<div class="login-box">
+			<i class="fa fa-user"></i>
+			<input class="input" type="text" name="user-ID" id="user" placeholder="User ID">
+		</div>
+		<div class="login-box">
+			<i class="fa fa-key"></i>
+			<input class="input" type="password" name="Password" id="pass" placeholder="Password">
+		</div>
+		<button class="login-btn"><a href="./admin-guest.html">Sign In</a></button>
+		</form>
+	</div>
+
+	<script>  
+		function validation()  
+		{  
+			var id=document.f1.user.value;  
+			var ps=document.f1.pass.value;  
+			if(id.length=="" && ps.length=="") {  
+				alert("User Name and Password fields are empty");  
+				return false;  
+			}  
+			else  
+			{  
+				if(id.length=="") {  
+					alert("User Name is empty");  
+					return false;  
+				}   
+				if (ps.length=="") {  
+				alert("Password field is empty");  
+				return false;  
+				}  
+			}                             
+		}  
+	</script>  
+  </body>
+</html>
